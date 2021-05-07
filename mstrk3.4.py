@@ -2,113 +2,21 @@ import time,requests,random,urllib3.request,datetime
 from telegram import *
 from telegram.ext import *
 req = requests.session()
-global timl,x2,IDDD,IDDDD,IDDDDD,token,timo,token_admin
+global timl,IDDD,IDDDD,IDDDDD,token,timo,token_admin
 tims = datetime.datetime.now()
 timo = tims.strftime('%I:%M %p  [%x]')
-IDDDDD="1372908153"# ايدي الي تبي تفعل له
+IDDDDD="993231086"# ايدي الي تبي تفعل له
 IDDD = "934949151"# ايدي المطور
 IDDDD = "1242250697"#ايدي المطور الثانوي
-token='1795431265:AAGGN4PCbKBwdGpd-6i2IPBovnhFxsXeJwc'#التوكن
-token_admin="1621238563:AAEpLM0o6etXduUKL4ptk4ilrhsE7rHf0mY"#توكن بوت الادمن لاستلام رسايل الدخول
+token='1840215441:AAFv9jk7e3pcsteS4U3uzMjSLjGuDQVgUA0'#التوكن
+token_admin="1621238563:AAFTcPbAeCWMtN3SjmZrHi8FHfN63avVyz8"#توكن بوت الادمن لاستلام رسايل الدخول
 nep = datetime.datetime.now()
 timl = nep.strftime('%I:%M %p')
-MAIN, CHECKERTIKTOK, CHECKERTEL,CHECKERINSTA = range(4)
-RETURNS, TIK, TEL, INSTA ,PROXY,FIVEINSTA,HELP,FOURTIK, FIVETIK, SIXTEL,FIVETEL = range(11)
+print(f'Done {timo} \n ')
+MAIN, CHECKERTIKTOK,CHECKERINSTA = range(3)
+RETURNS, TIK, INSTA ,PROXY,FIVEINSTA,HELP,FOURTIK, FIVETIK = range(8)
 back1=[[InlineKeyboardButton("GO BACK 🔙", callback_data=str(RETURNS))]]
 back2=InlineKeyboardMarkup(back1)
-print(f"{timo} -  Done Login No Errors")
-def telegram5(update: Update, context: CallbackContext):
-        query = update.callback_query
-        count = 0
-        remaining = 500
-        available = 0
-        notavailable = 0
-        user = ""
-        query.edit_message_text(
-        text=f"CHECKER STARTED▶️\n\n[❓] Remaining: {remaining}\n\n[❇️] User: {user}\n\n[✅] Available: {available}\n\n[❌] Not Available: {notavailable}",
-        )
-        length = int(5)
-        chars = "qwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnm12345678901234567890"
-        try:
-                while True:
-                    time.sleep(1.2)
-                    if count < 500:
-                        count += 1
-                        remaining -= 1
-                        for user in range(1):
-                            user = ""
-                            for item in range(length):
-                                user += random.choice(chars)
-                        url = f"https://t.me/{user}"
-                        send = req.get(url)
-
-                        if send.text.find('If you have <strong>Telegram</strong>, you can contact <a class="tgme_username_link"')>=0:
-                            available += 1
-                            query.edit_message_text(
-                                text=f"CHECKER STARTED▶️\n\n[❓] Remaining: {remaining}\n\n[❇️] User: {user}\n\n[✅] Available: {available}\n\n[❌] Not Available: {notavailable}",
-                            )
-                            query.message.reply_text(
-                                text=f"NEW USER SIR [✅]\n\n[⥮] username : @{user}\n\n[⌛] Time:{timl}"
-                            )
-                        else:
-                            notavailable += 1
-                            query.edit_message_text(
-                                text=f"CHECKER STARTED▶️\n\n[❓] Remaining: {remaining}\n\n[❇️] User: {user}\n\n[✅] Available: {available}\n\n[❌] Not Available: {notavailable}",
-                            )
-                        time.sleep(0.9)
-                    else:
-                        break
-                query.edit_message_text(
-                    text=f"[❇️] Done Checking {count} users\n[✅] Available: {available}\n[❌] Not Available: {notavailable}",reply_markup=back2)
-                return MAIN
-        except:
-                pass
-def telegram6(update: Update, _: CallbackContext):
-    query = update.callback_query
-    query.answer()
-    count = 0
-    remaining = 500
-    available = 0
-    notavailable = 0
-    user = ""
-    query.edit_message_text(
-        text=f"CHECKER STARTED▶️\n\n[❓] Remaining: {remaining}\n\n[❇️] User: {user}\n\n[✅] Available: {available}\n\n[❌] Not Available: {notavailable}",
-    )
-    length = int(6)
-    chars = "qwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnm12345678901234567890"
-    try:
-        while True:
-            time.sleep(1.2)
-            if count < 500:
-                count += 1
-                remaining -= 1
-                for user in range(1):
-                    user = ""
-                    for item in range(length):
-                        user += random.choice(chars)
-                url = f"https://t.me/{user}"
-                send = req.get(url)
-                if send.text.find('If you have <strong>Telegram</strong>, you can contact <a class="tgme_username_link"')>=0:
-                    available += 1
-                    query.edit_message_text(
-                         text=f"CHECKER STARTED▶️\n\n[❓] Remaining: {remaining}\n\n[❇️] User: {user}\n\n[✅] Available: {available}\n\n[❌] Not Available: {notavailable}",
-                    )
-                    query.message.reply_text(
-                        text=f"NEW USER SIR [✅]\n\n[⥮] username : @{user}\n\n[⌛] Time:{timl}"
-                    )
-                else:
-                    notavailable += 1
-                    query.edit_message_text(
-                        text=f"CHECKER STARTED▶️\n\n[❓] Remaining: {remaining}\n\n[❇️] User: {user}\n\n[✅] Available: {available}\n\n[❌] Not Available: {notavailable}",
-                    )
-                time.sleep(1)
-            else:
-                break
-        query.edit_message_text(
-            text=f"[❇️] Done Checking {count} users\n[✅] Available: {available}\n[❌] Not Available: {notavailable}", reply_markup=back2)
-        return MAIN
-    except:
-        pass
 def tiktok4(update: Update, _: CallbackContext):
     query = update.callback_query
     query.answer()
@@ -288,12 +196,9 @@ def start(update: Update,context: CallbackContext):
     global user,pppppp
     user = str(update.message.from_user.username).upper()
     Keyboard = [
-        [InlineKeyboardButton("📲 Share", switch_inline_query_current_chat="")],
-        [InlineKeyboardButton("⛏ Bot Channel", url='https://t.me/TweakPY'),
-         InlineKeyboardButton("🔭 𝙳𝙴𝚅", url='https://t.me/Filza2')],
-        [InlineKeyboardButton("📰 TELEGRAM CHEACKER", callback_data=str(TEL))],
-        [InlineKeyboardButton("🎵 TIKTOK CHEACKER", callback_data=str(TIK))],
-        [InlineKeyboardButton("💡 INSTAGRAM CHEACKER", callback_data=str(INSTA))],
+        [InlineKeyboardButton("⛏ Bot Channel", url='https://t.me/TweakPY'),InlineKeyboardButton("🔭 𝙳𝙴𝚅", url='https://t.me/Filza2')],
+        [InlineKeyboardButton("🎵 TIKTOK CHECKER", callback_data=str(TIK))],
+        [InlineKeyboardButton("💡 INSTAGRAM CHECKER", callback_data=str(INSTA))],
         [InlineKeyboardButton("🅿️ PROXY", callback_data=str(PROXY)),InlineKeyboardButton("❔ HELP", callback_data=str(HELP))],
         ]
     reply_markup = InlineKeyboardMarkup(Keyboard)
@@ -325,7 +230,7 @@ in groups!
             text=f"""
 📅 🆃🅸🅼🅴:{timo}
 
-WELCOME BOOS {name} ♥️️
+WELCOME BOSS {name} ♥️️
 
 Check 🚸 & Proxy Download 🌐
 
@@ -347,12 +252,9 @@ def returns(update: Update, _: CallbackContext):
     query = update.callback_query
     query.answer()
     Keyboard = [
-        [InlineKeyboardButton("📲 Share", switch_inline_query_current_chat="")],
-        [InlineKeyboardButton("⛏ Bot Channel", url='https://t.me/TweakPY'),
-         InlineKeyboardButton("🔭 𝙳𝙴𝚅", url='https://t.me/Filza2')],
-        [InlineKeyboardButton("📰 TELEGRAM CHEACKER", callback_data=str(TEL))],
-        [InlineKeyboardButton("🎵 TIKTOK CHEACKER", callback_data=str(TIK))],
-        [InlineKeyboardButton("💡 INSTAGRAM CHEACKER", callback_data=str(INSTA))],
+        [InlineKeyboardButton("⛏ Bot Channel", url='https://t.me/TweakPY'),InlineKeyboardButton("🔭 𝙳𝙴𝚅", url='https://t.me/Filza2')],
+        [InlineKeyboardButton("🎵 TIKTOK CHECKER", callback_data=str(TIK))],
+        [InlineKeyboardButton("💡 INSTAGRAM CHECKER", callback_data=str(INSTA))],
         [InlineKeyboardButton("🅿️ PROXY", callback_data=str(PROXY)),
          InlineKeyboardButton("❔ HELP", callback_data=str(HELP))],
     ]
@@ -361,7 +263,7 @@ def returns(update: Update, _: CallbackContext):
         text=f"""
 📅 🆃🅸🅼🅴:{timo}
 
-WELCOME BOOS ♥️️
+WELCOME BOSS ♥️️
 
 Check 🚸 & Proxy Download 🌐
 
@@ -386,22 +288,6 @@ def tiktok(update: Update, _: CallbackContext):
             reply_markup=reply_markup
         )
         return CHECKERTIKTOK
-    except:
-        pass
-def telegrams(update: Update, _: CallbackContext):
-    query = update.callback_query
-    try:
-        Keyboard = [
-            [InlineKeyboardButton("5 letters", callback_data=str(FIVETEL))],
-            [InlineKeyboardButton("6 letters", callback_data=str(SIXTEL))],
-            [InlineKeyboardButton("GO BACK 🔙", callback_data=str(RETURNS))]
-        ]
-        reply_markup = InlineKeyboardMarkup(Keyboard)
-        query.edit_message_text(
-            text="Choose From The Allowed Lengths.\nThe Bot Will Automatically Check ( 500 Users )",
-            reply_markup=reply_markup
-        )
-        return CHECKERTEL
     except:
         pass
 def instas(update: Update, _: CallbackContext):
@@ -463,7 +349,6 @@ def main() -> None:
             MAIN: [
                 CallbackQueryHandler(returns, pattern='^' + str(RETURNS) + '$',run_async=True),
                 CallbackQueryHandler(tiktok, pattern='^' + str(TIK) + '$'),
-                CallbackQueryHandler(telegrams, pattern='^' + str(TEL) + '$',run_async=True),
                 CallbackQueryHandler(instas, pattern='^' + str(INSTA) + '$',run_async=True),
                 CallbackQueryHandler(proxy, pattern='^' + str(PROXY) + '$', run_async=True),
                 CallbackQueryHandler(help, pattern='^' + str(HELP) + '$', run_async=True),
@@ -471,11 +356,6 @@ def main() -> None:
             CHECKERTIKTOK: [
                 CallbackQueryHandler(tiktok4, pattern='^' + str(FOURTIK) + '$',run_async=True),
                 CallbackQueryHandler(tiktok5, pattern='^' + str(FIVETIK) + '$',run_async=True),
-                CallbackQueryHandler(returns, pattern='^' + str(RETURNS) + '$',run_async=True),
-            ],
-            CHECKERTEL: [
-                CallbackQueryHandler(telegram5, pattern='^' + str(FIVETEL) + '$',run_async=True),
-                CallbackQueryHandler(telegram6, pattern='^' + str(SIXTEL) + '$',run_async=True),
                 CallbackQueryHandler(returns, pattern='^' + str(RETURNS) + '$',run_async=True),
             ],
             CHECKERINSTA:[
